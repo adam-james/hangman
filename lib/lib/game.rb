@@ -51,7 +51,7 @@ class Game
 
   def find_indexes(guess)
     letters_and_indexes =
-      @answer.each_with_index.select do |letter|
+      @answer.each_with_index.select do |letter, _index|
         letter == guess
       end
     letters_and_indexes.map { |_letter, index| index }
