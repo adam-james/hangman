@@ -7,8 +7,8 @@ describe Game do
   end
 
   describe '.initialize' do
-    it 'allows 3 guesses' do
-      expect(@game.guesses_left).to equal(3)
+    it 'allows 10 guesses' do
+      expect(@game.guesses_left).to equal(10)
     end
 
     it 'turns answer into an array' do
@@ -86,7 +86,7 @@ describe Game do
 
     context '.lost?' do
       it 'returns true' do
-        %w[z a b c].each do |letter|
+        %w[z a b c d w q p m n].each do |letter|
           @game.check_guess(letter)
         end
         expect(@game.lost?).to eql(true)
