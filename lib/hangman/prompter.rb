@@ -31,6 +31,8 @@ class Prompter
     show_answer(game)
   end
 
+  private
+
   def show_answer(game)
     puts %(The answer is "#{game.answer.join('')}".)
   end
