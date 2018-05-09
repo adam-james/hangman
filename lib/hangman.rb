@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
-# TODO
-# - test with rSpec
-# - run rubocop
-# - get more words (dict file or custom file)
-require_relative './lib/dictionary'
-require_relative './lib/game'
-require_relative './lib/prompter'
+require_relative './hangman/dictionary'
+require_relative './hangman/game'
+require_relative './hangman/prompter'
 
 # The top-level object for the hangman game.
 class Hangman
   def initialize
-    @game = Game.new(Dictionary.new.random_word)
+    filepath = ARGV[0] || '/usr/share/dict/words'
+    word = Dictionary.from_file(filepath).random_word
+    @game = Game.new(word)
     @prompter = Prompter.new
   end
 

@@ -2,11 +2,16 @@
 
 # Gets a word for the game.
 class Dictionary
-  def initialize
-    @words = %w[cat jazz house dog fan]
+  def self.from_file(filepath)
+    words = File.readlines(filepath)
+    new(words)
+  end
+
+  def initialize(words)
+    @words = words
   end
 
   def random_word
-    @words.sample
+    @words.sample.downcase.rstrip
   end
 end

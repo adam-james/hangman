@@ -6,7 +6,7 @@ class Game
 
   def initialize(word)
     @answer = word.split('')
-    @guesses_left = 3
+    @guesses_left = 10
     @guessed_right = ['_'] * answer.size
     @guessed_wrong = []
   end
