@@ -1,3 +1,5 @@
+task default: %w[lint test]
+
 task :lint do
   sh 'rubocop ./lib'
 end
